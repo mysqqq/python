@@ -1,3 +1,4 @@
+
 import time
 import random
 import os
@@ -101,11 +102,8 @@ def generate_fb_id():
 def print_banner():
     """Print tool banner"""
     banner = f"""
-{Colors.BRED}{Colors.BOLD}
-           STALKER DETECTOR
-{Colors.RESET}{Colors.BCYAN}
-            Mysteriousq
-{Colors.RESET}
+{Colors.BRED}{Colors.BOLD}STALKER DETECTOR{Colors.RESET}
+{Colors.BGREEN}Mysteriousq{Colors.RESET}
 """
     print(banner)
 
@@ -114,9 +112,7 @@ def login_screen():
     clear_screen()
     print_banner()
     
-    print(f"{Colors.BCYAN}═══════════════════════════════════════════════════════════════{Colors.RESET}")
-    print(f"{Colors.BGREEN}              FACEBOOK ACCOUNT AUTHENTICATION{Colors.RESET}")
-    print(f"{Colors.BCYAN}═══════════════════════════════════════════════════════════════{Colors.RESET}\n")
+    print(f"{Colors.BGREEN}FACEBOOK ACCOUNT AUTHENTICATION{Colors.RESET}\n")
     
     # Email/Mobile input
     print(f"{Colors.BYELLOW}[?]{Colors.RESET} Mobile number or email:")
@@ -194,7 +190,7 @@ def loading_phase():
     ]
     
     for step, color in loading_steps:
-        print(f"{color}{step}:{Colors.RESET} ", end='')
+        print(f"{color}[*] {step}{Colors.RESET}")
         progress_bar(random.uniform(0.8, 1.5), step, color)
         time.sleep(random.uniform(0.1, 0.3))
     
@@ -253,9 +249,7 @@ def display_statistics(stalkers):
     unknown = sum(1 for s in stalkers if s['status'] == 'Unknown')
     high_freq = sum(1 for s in stalkers if s['views'] >= 4)
     
-    print(f"{Colors.BCYAN}{Colors.BOLD}═══════════════════════════════════════════════════════════════{Colors.RESET}")
-    print(f"{Colors.BGREEN}                    THREAT ASSESSMENT SUMMARY{Colors.RESET}")
-    print(f"{Colors.BCYAN}═══════════════════════════════════════════════════════════════{Colors.RESET}\n")
+    print(f"{Colors.BGREEN}THREAT ASSESSMENT SUMMARY{Colors.RESET}\n")
     
     print(f"{Colors.YELLOW}[•] Total Profile Visitors:{Colors.RESET} {Colors.BOLD}{len(stalkers)}{Colors.RESET}")
     print(f"{Colors.YELLOW}[•] Total View Count:{Colors.RESET} {Colors.BOLD}{total_views}{Colors.RESET}")
@@ -268,9 +262,7 @@ def display_results(stalkers):
     """Display stalker results"""
     display_statistics(stalkers)
     
-    print(f"{Colors.BCYAN}{Colors.BOLD}═══════════════════════════════════════════════════════════════{Colors.RESET}")
-    print(f"{Colors.BMAGENTA}                    DETAILED VISITOR LOG{Colors.RESET}")
-    print(f"{Colors.BCYAN}═══════════════════════════════════════════════════════════════{Colors.RESET}\n")
+    print(f"{Colors.BMAGENTA}DETAILED VISITOR LOG{Colors.RESET}\n")
     
     print(f"{Colors.BCYAN}{'No.':<4} {'Name':<30} {'Status':<18} {'Views':<8} {'Last Seen'}{Colors.RESET}")
     print(f"{Colors.GRAY}{'-' * 75}{Colors.RESET}")
@@ -312,8 +304,7 @@ def display_results(stalkers):
               f"{Colors.GRAY}{last_seen}{Colors.RESET}")
         time.sleep(0.05)
     
-    print(f"\n{Colors.BCYAN}═══════════════════════════════════════════════════════════════{Colors.RESET}\n")
-    print(f"{Colors.GRAY}[i] Threat Level Key:{Colors.RESET}")
+    print(f"\n{Colors.GRAY}[i] Threat Level Key:{Colors.RESET}")
     print(f"    {Colors.BRED}⚠ 5+ views{Colors.RESET} - High risk stalker behavior")
     print(f"    {Colors.BYELLOW}! 3-4 views{Colors.RESET} - Elevated interest")
     print(f"    {Colors.YELLOW}• 2 views{Colors.RESET} - Moderate engagement")
